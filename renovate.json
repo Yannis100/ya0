@@ -1,13 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended", "mergeConfidence:all-badges"
-  ],
-  "packageRules": [
-      {
-            "groupName": "Mend: high confidence minor and patch dependency updates",
-            "matchUpdateTypes": ["minor", "patch"],
-            "matchConfidence": ["very high", "high"]
-      }
+    "config:recommended", "mergeConfidence:all-badges", "group:allNonMajor"
   ]
 }
