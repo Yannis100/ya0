@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:17
-    restart: always
+    restart: unless-stopped
     volumes:
       - app-db-data:/var/lib/postgresql/data/pgdata
     env_file:
@@ -13,8 +13,12 @@ services:
       - POSTGRES_DB=${POSTGRES_DB?Variable not set}
 
   adminer:
-    image: adminer
-    restart: always
+    image: dockette/adminer:full
+    # dockette/adminerevo
+    # shyim/adminerevo
+    # snowdreamtech/adminerevo
+    # yannoff/adminerevo
+    restart: unless-stopped
     networks:
       - traefik-public
       - default
@@ -37,7 +41,7 @@ services:
 
   backend:
     image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
-    restart: always
+    restart: unless-stopped
     networks:
       - traefik-public
       - default
@@ -94,7 +98,7 @@ services:
 
   frontend:
     image: '${DOCKER_IMAGE_FRONTEND?Variable not set}:${TAG-latest}'
-    restart: always
+    restart: unless-stopped
     networks:
       - traefik-public
       - default
