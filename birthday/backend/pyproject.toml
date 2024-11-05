@@ -8,7 +8,7 @@ authors = ["Yannis <yayouzer@gmail.com>"]
 python = "^3.10"
 uvicorn = {extras = ["standard"], version = "^0.32.0"}
 fastapi = "^0.115.0"
-python-multipart = "^0.0.16"
+python-multipart = "^0.0.17"
 email-validator = "^2.1.0.post1"
 passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 tenacity = "^9.0.0"
